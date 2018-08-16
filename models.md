@@ -1,14 +1,15 @@
 # Shop Project
 <br>
-  
-## Models
+## List of models
 
 ### User
 - **id** *int* 
 - **username** *varchar 150*
 - **firstname** *varchar 150*
-- **enabled** *boolean*
 - **lastname** *varchar 150*
+- **email** *varchar 150*
+- **birthday** *date*
+- **enabled** *boolean*
 - **picture_path** *text*
 - **password** *text*
 - **salt** *text*
@@ -23,11 +24,15 @@
 - **address_line\_1** *varchar 200*
 - **address_line\_2** *varchar 200*
 
+> NOTE : User can be buyer or seller, if user is seller, he is also buyer.
+
 
 ### Product
 - **id** *int* 
 - **name** *varchar 255*
 - **description** *text*
+- **category** *ManyToOne*
+	- Return `ProductCategory`
 - **created_at** *datetime*
 - **price** *float*
 - **picture_path** *text*
@@ -41,6 +46,8 @@
 - **id** *int* 
 - **name** *varchar 255*
 - **description** *text*
+- **owner** *ManyToOne*
+	- Return `User`
 - **category** *ManyToOne*
 	- Return `ShopCategory`
 - **country** *ManyToOne*
@@ -66,7 +73,8 @@
 - **products** *ManyToMany*
 	- Return `Product` array
 - **price** *float*
-
+- **paiement_method** *varchar 50*
+> Paiements methods will be to define
 
 ### Notification
 - **id** *int*
@@ -83,6 +91,20 @@
 - **id** *int* 
 - **name** *varchar 200*
 
+### ProductCategory
+- **id** *int* 
+- **name** *varchar 200*
+
 ### Country
 - **id** *int* 
 - **name** *varchar 200*
+> List of countries to define
+
+### Report
+- **id** *int* 
+- **user** *ManyToOne*
+	- Return `User`
+- **reason** *text*
+- **created_at** *datetime*
+- **url** *text*
+> To flag non authorized content
