@@ -7,6 +7,7 @@
 - **id** *int* 
 - **username** *varchar 150*
 - **firstname** *varchar 150*
+- **enabled** *boolean*
 - **lastname** *varchar 150*
 - **picture_path** *text*
 - **password** *text*
