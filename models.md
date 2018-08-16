@@ -13,7 +13,7 @@
 - **salt** *text*
 - **created_at** *datetime*
 - **user_type** *varchar 50*
-	- Return : `customer` or `seller`
+	- Return : `buyer` or `seller`
 - **last_login** *datetime*
 - **country** *ManyToOne*
 	- Return `Country`
@@ -66,6 +66,17 @@
 	- Return `Product` array
 - **price** *float*
 
+
+### Notification
+- **id** *int*
+- **user** *ManyToOne*
+	- Return `User`
+- **created_at** *datetime*
+- **title** *varchar 60*
+- **content** *text*
+- **target** *text*
+- **status** *varchar 10*
+	- Return `read` / `unread`
 
 ### ShopCategory
 - **id** *int* 
